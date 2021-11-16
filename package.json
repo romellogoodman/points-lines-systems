@@ -4,6 +4,7 @@
   "description": "",
   "main": "class-1.js",
   "scripts": {
+    "prompt": "canvas-sketch prompt-$npm_config_prompt -p 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
