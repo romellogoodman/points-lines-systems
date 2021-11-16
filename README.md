@@ -34,7 +34,7 @@ or
 canvas-sketch prompt-$PROMPT_NUMBER -p 3000
 ```
 
-Open your browser to [http://localhost:3000/](localhost:3000)
+Open your browser to [http://localhost:3000](http://localhost:3000)
 
 ### Prompts
 
