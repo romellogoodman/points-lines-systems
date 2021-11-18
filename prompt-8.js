@@ -42,21 +42,6 @@ const sketch = (props) => {
 
   for (let line = 0; line < 99; line++) {
     const p = createPath();
-
-    let step = 0.5;
-
-    // // We start our angle from 0, and increment it by 0.5 radians (28 degrees) until we reach 2 * PI radians (360 degrees)
-    // for (let angle = 0; angle <= 2 * Math.PI; angle = angle + step) {
-    //   // We get the (x, y) coordinates of the point at the current angle
-    //   let x = Math.cos(angle) + centerX;
-    //   let y = Math.sin(angle) + centerY;
-
-    //   // And we draw it.
-    //   p.moveTo(x, y);
-    //   // I'm using (x + 0.01, y + 0.01) as a way to draw a small dot.
-    //   p.lineTo(x + 0.01, y + 0.01);
-    // }
-
     const angle = map(line, 0, 99, 0, 360);
 
     // console.log("angle", angle, Math.sin(radians(angle)));
