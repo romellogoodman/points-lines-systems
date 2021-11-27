@@ -1,4 +1,5 @@
 const { createPath } = require("canvas-sketch-util/penplot");
+const Random = require("canvas-sketch-util/random");
 
 export const LINE_WIDTH = 0.01;
 export const PAPER_HEIGHT = 4.5;
@@ -69,6 +70,33 @@ export const drawPerfectCurve = (A, B) => {
 
   p.moveTo(A.x, A.y);
   p.quadraticCurveTo(cX, cY, B.x, B.y);
+
+  return p;
+};
+
+export const drawNoisyCircle = (
+  centerX,
+  centerY,
+  radius,
+  frequency = 1,
+  amplitude = 0.5
+) => {
+  let angleStep = 0.02;
+  let p = createPath();
+
+  for (let angle = 0; angle <= 2 * Math.PI; angle = angle + angleStep) {
+    let x = Math.cos(angle) * radius + centerX;
+    let y = Math.sin(angle) * radius + centerY;
+
+    let noiseX = x + Random.noise1D(angle, frequency, amplitude);
+    let noiseY = y + Random.noise1D(angle, frequency, amplitude);
+
+    if (angle === 0) {
+      p.moveTo(noiseX, noiseY);
+    } else {
+      p.lineTo(noiseX, noiseY);
+    }
+  }
 
   return p;
 };
